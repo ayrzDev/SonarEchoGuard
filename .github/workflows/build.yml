@@ -1,0 +1,37 @@
+name: Windows build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Build
+        shell: pwsh
+        run: ./Build.ps1
+      - name: Check assembly metadata
+        shell: pwsh
+        run: |
+          $identity = [Reflection.AssemblyName]::GetAssemblyName((Join-Path $pwd 'SonarEchoGuard.exe'))
+          if ($identity.Name -ne 'SonarEchoGuard' -or $identity.Version.ToString() -ne '2.0.0.0') { throw 'Unexpected executable metadata.' }
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path release | Out-Null
+          $files = @('SonarEchoGuard.exe','Install.ps1','Uninstall.ps1','Read Me.txt','LICENSE')
+          Compress-Archive -LiteralPath $files -DestinationPath release/SonarEchoGuard-windows-x64.zip
+      - uses: actions/upload-artifact@v7
+        with:
+          name: SonarEchoGuard-windows-x64
+          path: release/SonarEchoGuard-windows-x64.zip
+          if-no-files-found: error

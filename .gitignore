@@ -1,0 +1,14 @@
+*.exe
+*.pdb
+*.zip
+*.log
+Test Results.json
+Device Diagnostics.json
+After Activation.json
+Resource Snapshot.json
+Verification Summary.json
+release/
+.vs/
+.vscode/
+bin/
+obj/

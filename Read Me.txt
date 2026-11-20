@@ -1,0 +1,18 @@
+SONAR ECHO GUARD 2.0.0
+Copyright (c) 2026 Ayrz. MIT license: LICENSE
+
+ENGLISH
+Run SonarEchoGuard.exe. Right-click the shield icon for a compact menu.
+Choose Language / Dil > English or Türkçe. The choice is saved.
+Only Discord playback on Sonar Microphone is muted; normal chat and microphone capture remain unchanged.
+Use Install.ps1 for per-user installation and quiet startup. Use Uninstall.ps1 to uninstall.
+Exit normally to restore the live sessions changed by this instance.
+
+TÜRKÇE
+SonarEchoGuard.exe dosyasını çalıştır. Saat yanındaki kalkan simgesine sağ tıkla.
+Language / Dil menüsünden Türkçe veya English seç. Dil seçimi kaydedilir.
+Yalnızca Sonar Microphone çalma çıkışındaki Discord sesi susturulur; normal sohbet ve gerçek mikrofon girişi değişmez.
+Kurulum için Install.ps1, kaldırmak için Uninstall.ps1 kullan.
+Çıkış seçeneği, uygulamanın değiştirdiği mevcut ses oturumlarını eski durumuna döndürür.
+
+https://github.com/ayrzDev/SonarEchoGuard
